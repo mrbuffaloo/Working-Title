@@ -1,0 +1,10 @@
+@media screen {
+    .navigation-menu ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        flex-direction: column;
+        width:100%;
+        height: calc(100vh - 77px);
+    }
+}

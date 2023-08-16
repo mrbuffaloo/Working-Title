@@ -1,0 +1,28 @@
+
+version: '3'
+services:
+  postgres:
+    build:
+      dockerfile: Dockerfile
+      context: ./server/src/prisma
+    environment:
+      - POSTGRES_USER=""
+      - POSTGRES_PASSWORD=""
+    ports:
+      - '5432:5432'
+  nginx:
+    depends_on:
+      - api
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    ports:
+      - '3000:3000'
+ 
